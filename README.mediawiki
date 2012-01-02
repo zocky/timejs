@@ -4,28 +4,26 @@ a date/time manipulation library
 ==Examples==
 
 ===US Election Day === 
-<code lang="javascript">
- //Tuesday after 1st Monday of Nov
-var t = new Time();
-t.month(10);  // go to october of this year
-t.day(30);    // go to the last day of october
-t.monday(1);  // find the next monday
+<tt>
+//Tuesday after 1st Monday of Nov<br>
+var t = new Time();<br>
+t.month(10);  // go to october of this year<br>
+t.day(30);    // go to the last day of october<br>
+t.monday(1);  // find the next monday<br>
 t.tuesday(1); // find the following tuesday
-</code>
+</tt>
+
 or, with some optimization and chaining:
-<code lang="javasript">
-t.month(11).day(1).tuesday(1);
-</code>
+
+<tt>t.month(11).day(1).tuesday(1);</tt>
 === Loop through a month ===
-<code lang="javasript">
-for (var t = Time.now.day(1); t.month()==Time.now.month(); t.days(1) {
-  console.log(t.format('w, d F Y'), "a week after",t.clone().days(-7).format('d F'));
-}
-</code>
+<tt>
+for (var t = Time.now.day(1); t.month()==Time.now.month(); t.days(1) {<br>
+&nbsp;&nbsp;console.log(t.format('w, d F Y'), "a week after",t.clone().days(-7).format('d F'));<br>
+}<br>
+</tt>
 === Find the last day of month ===
-<code lang="javasript">
-Time.now.month(1).months(+1).days(-1);
-</code>
+<tt lang="javascript">Time.now.month(1).months(+1).days(-1);</tt>
 == Constructor ==
 
 ;Time(value)
