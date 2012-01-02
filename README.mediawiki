@@ -90,7 +90,7 @@ With these methods you can change the Time object by a certain value. Note that 
 ;time.sunday()
 :move to Sunday of the current week, shorthand for time.weekday(0) 
 ;time.sunday(m)
-;move to a Sunday relative to the current date , shorthand for time.weekday(0,m)
+:move to a Sunday relative to the current date , shorthand for time.weekday(0,m)
 ;time.monday(), time.monday(m)
 ;time.tuesday(), time.tuesday(m)
 ;time.wednesday(), time.wednesday(m)
