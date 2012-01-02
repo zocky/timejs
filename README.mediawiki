@@ -4,24 +4,24 @@ a date/time manipulation library
 ==Examples==
 
 ===US Election Day === 
-<pre>
+<code>
 //Tuesday after 1st Monday of Nov
 var t = new Time();
 t.month(10);  // go to october of this year
 t.day(30);    // go to the last day of october
 t.monday(1);  // find the next monday
 t.tuesday(1); // find the following tuesday
-</pre>
+</code>
 or, with some optimization and chaining:
-<pre>
+<code>
 t.month(11).day(1).tuesday(1);
-</pre>
+</code>
 === Loop through a month ===
-<pre>
+<code>
 for (var t = Time.now.day(1); t.month()==Time.now.month(); t.days(1) {
   console.log(t.format('w, d F Y'), "a week after",t.clone().days(-7).format('d F'));
 }
-</pre>
+</code>
 === Find the last day of month ===
 <pre>
 Time.now.month(1).months(+1).days(-1);
