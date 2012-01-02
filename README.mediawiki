@@ -4,28 +4,28 @@ a date/time manipulation library
 ==Examples==
 
 ===US Election Day === 
-<source lang="javascript">
+<code lang="javascript">
  //Tuesday after 1st Monday of Nov
 var t = new Time();
 t.month(10);  // go to october of this year
 t.day(30);    // go to the last day of october
 t.monday(1);  // find the next monday
 t.tuesday(1); // find the following tuesday
-</source>
+</code>
 or, with some optimization and chaining:
-<source lang="javasript">
+<code lang="javasript">
 t.month(11).day(1).tuesday(1);
-</source>
+</code>
 === Loop through a month ===
-<source lang="javasript">
+<code lang="javasript">
 for (var t = Time.now.day(1); t.month()==Time.now.month(); t.days(1) {
   console.log(t.format('w, d F Y'), "a week after",t.clone().days(-7).format('d F'));
 }
-</source>
+</code>
 === Find the last day of month ===
-<source lang="javasript">
+<code lang="javasript">
 Time.now.month(1).months(+1).days(-1);
-</source>
+</code>
 == Constructor ==
 
 ;Time(value)
