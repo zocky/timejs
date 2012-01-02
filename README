@@ -1,0 +1,118 @@
+a date/time manipulation library
+(C)2012 Zoran Obradović, Ljudmila.org, GPL3.0
+
+== Example ==
+
+for (var t = Time.now.day(1); t.month()==Time.now.month(); t.days(1) {
+  console.log(t.format('w, d F Y'), "a week after",t.clone().days(-7).format('d F'));
+}
+
+== Constructor ==
+
+;Time(value)
+:constructor, can be called with or without new
+:if passed a Time object, it will clone it, otherwise it will behave exactly as new Date();
+
+== Class properties ==
+
+; Time.now
+: current datetime, same as Time();
+; Time.today
+: current date, with time set to 0
+; Time.tomorrow
+: like above, but for tomorrow
+; Time.yesterday
+: like above, but for yesterday
+; Time.oclock
+: current time, with date set to 0
+
+== Instance properties ==
+; time.date
+: the underlying Date object
+
+== Instance methods ==
+=== General ===
+; time.clone() 
+: clone the Time object (e.g. to make some calculations while keeping the original object intact.
+=== Accessor methods ===
+With these methods you can set and get the individual values. Note that all accessor method names are in singular.
+; year(), year(n) 
+: with no arguments, the method will return the year of the Time object. With an argument, it will set the year.
+; month(), month(n) 
+; day(), day(n) 
+; hour(), hour(n) 
+; minute(), minute(n) 
+; second(), second(n) 
+; millisecond(), millisecond(n)
+; milli(), milli(n) - handy abbreviation for milliseconds
+
+=== Traversal ===
+With these methods you can change the Time object by a certain value. Note that all the traversal method names are in plural.
+;time.years(n)
+: move n years forward (if n is greater than 0) or backward (if n is less than 0)
+;time.months(n)
+;time.days(n)
+;time.hours(n)
+;time.minutes(n)
+;time.seconds(n)
+;time.milliseconds(n)
+
+=== Weekdays ===
+;time.weekday()
+: return the weekday, 0=Sunday, 6=Saturday
+:time.weekday(n) 
+: change the date to day-of-week n in the same week
+:time.weekday(n,m)
+: change the date to day-of-week n, relative from the current date. 
+: n = 0 means the last chosen day-of-week before or on the current date.
+: n = -1 means the second last chosen day-of-week before or on the current date, ...
+: n = 1 means the next chosen-day-of-week after the current date.
+: n = 2 means the second next chosen-day-of-week after the current date.
+;time.sunday()
+:move to Sunday of the current week, shorthand for time.weekday(0) 
+;time.sunday(m)
+:move to a Sunday relative to the current date , shorthand for time.weekday(0,m)
+:time.monday(), time.monday(m)
+:time.tuesday(), time.tuesday(m)
+:time.wednesday(), time.wednesday(m)
+:time.thursday(), time.thursday(m)
+:time.friday(), time.friday(m)
+:time.saturday(), time.saturday(m)
+:time.sunday(), time.sunday(m)
+
+=== Timezone ===
+;time.timezone()
+:get the timezone abbreviation
+;time.offset()
+:get the offset from UTC in milliseconds
+
+=== Formatting ===
+;format(fmt='Y-m-d h:i:s')
+: a clone of php's date function, does almost all of the codes that PHP does, with the addition of the following letter codes:
+:;C
+:;:javascript date.toISOString()
+:;k
+:;:javascript date.toDateString()
+:;K
+:;:javascript date.toLocaleDateString()
+:;q
+:;:javascript date.toTimeString()
+:;Q
+:;:javascript date.toLocaleTimeString()
+:;v
+:;:javascript date.toString()
+:;V
+:;:javascript date.toLocaleString()
+:;x
+:;:milliseconds
+:;X
+:;:unix timestamp in milliseconds
+
+== TODO ==
+* Weeks - urgent!
+* Serial date - urgent!
+* Localization
+* Scheduling
+* Switch UTC/local
+* ...
+
